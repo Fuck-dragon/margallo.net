@@ -3,71 +3,316 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Professional Portfolio</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <title>John Ivan B. Margallo | Cyber Security Expert</title>
+    <style>
+        /* --- Modern CSS Reset & Variables --- */
+        :root {
+            --primary-green: #034b30;
+            --hover-green: #00563b;
+            --text-light: #fafcf9;
+            --glass-bg: rgba(25, 82, 3, 0.2);
+            --glass-border: rgba(255, 255, 255, 0.25);
+            --cyber-neon: #00ff41;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, -apple-system, Arial, sans-serif;
+            background-color: #070707;
+            background-image: url('https://i.imgur.com/TLB9pXG.gif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 18px; /* Slightly larger base font for desktop */
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .nav-logo {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px);
+            padding: 10px 40px;
+            border-radius: 50px;
+            border: 1px solid var(--glass-border);
+            font-weight: bold;
+            letter-spacing: 4px;
+            color: var(--cyber-neon);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 90vh; /* Taller hero section for desktop */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem; /* Larger heading */
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(0, 255, 65, 0.6);
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.8rem; /* Larger sub-text */
+            opacity: 0.9;
+            max-width: 800px;
+        }
+
+        /* --- Sections & Glass Containers --- */
+        section {
+            padding: 100px 30px; /* Increased vertical padding */
+            max-width: 1200px; /* Wider container for desktop */
+            margin: 0 auto;
+        }
+
+        .round-box {
+            border-radius: 24px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            padding: 50px; /* More breathing room */
+            margin-bottom: 50px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
+        }
+
+        h2 {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 2.2rem;
+            margin-bottom: 60px;
+            border-bottom: 3px solid var(--primary-green);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title-container {
+            text-align: center;
+        }
+
+        /* --- Image Gallery Grid --- */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Larger image cards */
+            gap: 30px;
+            justify-items: center;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 320px; /* Taller images */
+            object-fit: cover;
+            border-radius: 18px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid var(--glass-border);
+        }
+
+        .gallery img:hover {
+            transform: scale(1.08) translateY(-10px);
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.4);
+            z-index: 2;
+        }
+
+        /* --- Buttons --- */
+        .btn-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin: 60px 0;
+        }
+
+        .my-button {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            display: inline-block;
+            min-width: 260px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .my-button:hover {
+            background-color: var(--hover-green);
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.5);
+            transform: translateY(-5px);
+            border-color: var(--cyber-neon);
+        }
+
+        /* --- Animated Arrows --- */
+        .arrow-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .arrow-container span {
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-bottom: 4px solid var(--text-light);
+            border-right: 4px solid var(--text-light);
+            transform: rotate(45deg);
+            margin: -8px;
+            animation: animate 2s infinite;
+        }
+
+        @keyframes animate {
+            0% { opacity: 0; transform: rotate(45deg) translate(-15px, -15px); }
+            50% { opacity: 1; }
+            100% { opacity: 0; transform: rotate(45deg) translate(15px, 15px); }
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: rgba(0,0,0,0.95);
+            padding: 80px 30px;
+            text-align: center;
+            border-top: 2px solid var(--primary-green);
+        }
+
+        footer h2 {
+            border-bottom: none;
+            margin-bottom: 30px;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        footer a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--cyber-neon);
+        }
+
+        /* --- Responsive Tweaks --- */
+        @media (max-width: 768px) {
+            body { font-size: 16px; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { font-size: 1.2rem; }
+            .hero { height: 70vh; }
+            section { padding: 60px 20px; }
+            .round-box { padding: 25px; }
+            .my-button { min-width: 100%; }
+        }
+    </style>
 </head>
 <body>
-    <div class="arrow-container">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    
+
     <nav>
-        <div class="round-box">Cyber1</div>
+        <div class="nav-logo">CYBER1</div>
     </nav>
-    <section class="margin">
-    <header id="hero">
-        <h1>Hi, I'm John Ivan B. Margallo</h1>
-        <p>A professional Cyber Security Expert</p>
+    
+    <header class="hero">
+        <h1>John Ivan B. Margallo</h1>
+        <p>Expert in Systems Defense & Cybersecurity Infrastructure</p>
+        <div class="arrow-container">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
-    </section>
+
     <section id="Me">
-    <div class="round-box">
-    <img src="https://i.imgur.com/kqy1Nta.jpeg">
-    <img src="https://i.imgur.com/Ukl855C.jpeg">
-    <img src="https://i.imgur.com/5vjI99o.jpeg">
-    <img src="https://i.imgur.com/6h3ge2R.jpeg">
-    </div>
+        <div class="section-title-container">
+            <h2>About Me</h2>
+        </div>
+        <div class="round-box gallery">
+            <img src="https://i.imgur.com/kqy1Nta.jpeg" alt="Identity">
+            <img src="https://i.imgur.com/Ukl855C.jpeg" alt="Identity">
+            <img src="https://i.imgur.com/5vjI99o.jpeg" alt="Identity">
+            <img src="https://i.imgur.com/6h3ge2R.jpeg" alt="Identity">
+        </div>
+
+        <div class="btn-container">
+            <a href="https://t.me/Cyber100190" class="my-button">View My Work</a>
+            <a href="https://paypal.me/JMargallo699" class="my-button">Support My Research</a>
+        </div>
     </section>
-<h1>
-    <a href="https://t.me/Cyber100190" class="my-button">View My Work</a>
-</h1>
-<h1>
-    <a href="https://paypal.me/JMargallo699" class="my-button">Payment and Donations</a>
-</h1>
+
     <section id="projects">
+        <div class="section-title-container">
+            <h2>Credentials & Certifications</h2>
+        </div>
         
-        <h2>CREDENTIALS</h2>
         <div class="round-box">
-                <h3>Project One</h3>
-                <p>A brief description of what this project does and the tech used.</p>
-                <img src="https://i.imgur.com/bqQsxF5.jpeg">
-                <img src="https://i.imgur.com/wnaY0MJ.png">
-                <img src="https://i.imgur.com/5rHDHSq.png">
-                <img src="https://i.imgur.com/ul2NERC.png">
-                <img src="https://i.imgur.com/XgxLLz2.png">
-                <img src="https://i.imgur.com/KjQuHzs.png">
-                <img src="https://i.imgur.com/ygFiLra.png">
-                <img src="https://i.imgur.com/NqpUosw.png">
-                <img src="https://i.imgur.com/kDgvPmI.png">
+            <h3>Advanced Security Portfolio</h3>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem; opacity: 0.8;">Verified expertise in system penetration testing, network defense, and vulnerability assessment across enterprise environments.</p>
+            <div class="gallery">
+                <img src="https://i.imgur.com/bqQsxF5.jpeg" alt="Cert 1">
+                <img src="https://i.imgur.com/wnaY0MJ.png" alt="Cert 2">
+                <img src="https://i.imgur.com/5rHDHSq.png" alt="Cert 3">
+                <img src="https://i.imgur.com/ul2NERC.png" alt="Cert 4">
+                <img src="https://i.imgur.com/XgxLLz2.png" alt="Cert 5">
+                <img src="https://i.imgur.com/KjQuHzs.png" alt="Cert 6">
+                <img src="https://i.imgur.com/ygFiLra.png" alt="Cert 7">
+                <img src="https://i.imgur.com/NqpUosw.png" alt="Cert 8">
+                <img src="https://i.imgur.com/kDgvPmI.png" alt="Cert 9">
+                <img src="https://i.imgur.com/Q0SEhcJ.png" alt="Cert 10">
             </div>
-            
-            <a href="https://soulreaperkayn3-a11y.github.io/computer-shop.com/" class="my-button">View Shop</a>
-            <!-- Add more project cards here -->
-             
+        </div>
+        
+        <div style="text-align: center;">
+            <a href="https://soulreaperkayn3-a11y.github.io/computer-shop.com/" class="my-button">Visit Computer Shop</a>
         </div>
     </section>
 
     <footer id="contact">
-        <h2>Get In Touch</h2>
-         <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contacts: 09513449531/09569719187</a></li>
+        <h2>Secure Contact</h2>
+        <ul>
+            <li><a href="#">Back to Top</a></li>
+            <li><a href="#projects">Certifications</a></li>
+            <li><a href="mailto:ivanpogi399@gmail.com">Secure Email</a></li>
         </ul>
-        <p>Email: <a href="mailto:ivanpogi399@gmail.com">ivanpogi399@gmail.com</a></p>
-        <p>© 2025 Cyber1</p>
+        <div style="margin: 30px 0; opacity: 0.8; font-size: 1.1rem;">
+            <p>Direct Support: 09513449531 | 09569719187</p>
+        </div>
+        <p style="font-size: 0.9rem; opacity: 0.5; letter-spacing: 2px;">© 2025 CYBER1 SECURITY SOLUTIONS • BUILT FOR PERFORMANCE</p>
     </footer>
+
 </body>
 </html>

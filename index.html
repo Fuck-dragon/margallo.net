@@ -32,7 +32,7 @@
             background-attachment: fixed;
             color: var(--text-light);
             line-height: 1.6;
-            font-size: 18px; /* Slightly larger base font for desktop */
+            font-size: 18px;
         }
 
         /* --- Navigation --- */
@@ -59,7 +59,7 @@
 
         /* --- Hero Section --- */
         .hero {
-            height: 90vh; /* Taller hero section for desktop */
+            height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -69,22 +69,22 @@
         }
 
         .hero h1 {
-            font-size: 4.5rem; /* Larger heading */
+            font-size: 4.5rem;
             margin-bottom: 20px;
             text-shadow: 0 0 30px rgba(0, 255, 65, 0.6);
             letter-spacing: -1px;
         }
 
         .hero p {
-            font-size: 1.8rem; /* Larger sub-text */
+            font-size: 1.8rem;
             opacity: 0.9;
             max-width: 800px;
         }
 
         /* --- Sections & Glass Containers --- */
         section {
-            padding: 100px 30px; /* Increased vertical padding */
-            max-width: 1200px; /* Wider container for desktop */
+            padding: 100px 30px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -94,7 +94,7 @@
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
-            padding: 50px; /* More breathing room */
+            padding: 50px;
             margin-bottom: 50px;
             box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
         }
@@ -110,25 +110,22 @@
             padding-bottom: 10px;
         }
 
-        .section-title-container {
-            text-align: center;
-        }
-
         /* --- Image Gallery Grid --- */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Larger image cards */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             justify-items: center;
         }
 
         .gallery img {
             width: 100%;
-            height: 320px; /* Taller images */
+            height: 320px;
             object-fit: cover;
             border-radius: 18px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid var(--glass-border);
+            cursor: pointer; /* Indicates it's clickable */
         }
 
         .gallery img:hover {
@@ -193,6 +190,48 @@
             0% { opacity: 0; transform: rotate(45deg) translate(-15px, -15px); }
             50% { opacity: 1; }
             100% { opacity: 0; transform: rotate(45deg) translate(15px, 15px); }
+        }
+
+        /* --- Lightbox / Image Viewer --- */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(0, 255, 65, 0.3);
+            border: 2px solid var(--glass-border);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: var(--text-light);
+            font-size: 3rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .lightbox-close:hover {
+            color: var(--cyber-neon);
         }
 
         /* --- Footer --- */
@@ -262,10 +301,12 @@
             <h2>About Me</h2>
         </div>
         <div class="round-box gallery">
-            <img src="https://i.imgur.com/kqy1Nta.jpeg" alt="Identity">
-            <img src="https://i.imgur.com/Ukl855C.jpeg" alt="Identity">
-            <img src="https://i.imgur.com/5vjI99o.jpeg" alt="Identity">
-            <img src="https://i.imgur.com/6h3ge2R.jpeg" alt="Identity">
+            <img src="https://i.imgur.com/kqy1Nta.jpeg" alt="Identity" class="zoom-img">
+            <img src="https://i.imgur.com/Ukl855C.jpeg" alt="Identity" class="zoom-img">
+            <img src="https://i.imgur.com/5vjI99o.jpeg" alt="Identity" class="zoom-img">
+            <img src="https://i.imgur.com/6h3ge2R.jpeg" alt="Identity" class="zoom-img">
+            <img src="https://i.imgur.com/SCKEiHr.jpeg" alt="Identity" class="zoom-img">
+            <img src="https://i.imgur.com/dzgCy6h.jpeg" alt="Identity" class="zoom-img">
         </div>
 
         <div class="btn-container">
@@ -280,19 +321,19 @@
         </div>
         
         <div class="round-box">
-            <h3>Advanced Security Portfolio</h3>
+            <h3 style="text-align: center; margin-bottom: 10px;">Advanced Security Portfolio</h3>
             <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem; opacity: 0.8;">Verified expertise in system penetration testing, network defense, and vulnerability assessment across enterprise environments.</p>
             <div class="gallery">
-                <img src="https://i.imgur.com/bqQsxF5.jpeg" alt="Cert 1">
-                <img src="https://i.imgur.com/wnaY0MJ.png" alt="Cert 2">
-                <img src="https://i.imgur.com/5rHDHSq.png" alt="Cert 3">
-                <img src="https://i.imgur.com/ul2NERC.png" alt="Cert 4">
-                <img src="https://i.imgur.com/XgxLLz2.png" alt="Cert 5">
-                <img src="https://i.imgur.com/KjQuHzs.png" alt="Cert 6">
-                <img src="https://i.imgur.com/ygFiLra.png" alt="Cert 7">
-                <img src="https://i.imgur.com/NqpUosw.png" alt="Cert 8">
-                <img src="https://i.imgur.com/kDgvPmI.png" alt="Cert 9">
-                <img src="https://i.imgur.com/Q0SEhcJ.png" alt="Cert 10">
+                <img src="https://i.imgur.com/bqQsxF5.jpeg" alt="Cert 1" class="zoom-img">
+                <img src="https://i.imgur.com/wnaY0MJ.png" alt="Cert 2" class="zoom-img">
+                <img src="https://i.imgur.com/5rHDHSq.png" alt="Cert 3" class="zoom-img">
+                <img src="https://i.imgur.com/ul2NERC.png" alt="Cert 4" class="zoom-img">
+                <img src="https://i.imgur.com/XgxLLz2.png" alt="Cert 5" class="zoom-img">
+                <img src="https://i.imgur.com/KjQuHzs.png" alt="Cert 6" class="zoom-img">
+                <img src="https://i.imgur.com/ygFiLra.png" alt="Cert 7" class="zoom-img">
+                <img src="https://i.imgur.com/NqpUosw.png" alt="Cert 8" class="zoom-img">
+                <img src="https://i.imgur.com/kDgvPmI.png" alt="Cert 9" class="zoom-img">
+                <img src="https://i.imgur.com/Q0SEhcJ.png" alt="Cert 10" class="zoom-img">
             </div>
         </div>
         
@@ -313,6 +354,46 @@
         </div>
         <p style="font-size: 0.9rem; opacity: 0.5; letter-spacing: 2px;">© 2025 CYBER1 SECURITY SOLUTIONS • BUILT FOR PERFORMANCE</p>
     </footer>
+
+    <!-- Lightbox Structure -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoomed view">
+    </div>
+
+    <script>
+        // Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const zoomImages = document.querySelectorAll('.zoom-img');
+        const closeBtn = document.querySelector('.lightbox-close');
+
+        zoomImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.classList.add('active');
+                lightboxImg.src = img.src;
+                // Prevent scrolling while lightbox is open
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        };
+
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target !== lightboxImg) {
+                closeLightbox();
+            }
+        });
+
+        // Close on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
 
 </body>
 </html>

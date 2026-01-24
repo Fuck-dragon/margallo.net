@@ -45,16 +45,47 @@
             padding: 20px;
         }
 
-        .nav-logo {
+        .nav-logo-wrapper {
             background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(15px);
-            padding: 10px 40px;
+            padding: 12px 35px;
             border-radius: 50px;
             border: 1px solid var(--glass-border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+        }
+
+        .nav-logo-main {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .ac-insignia {
+            height: 28px;
+            width: auto;
+            fill: var(--cyber-neon);
+            filter: drop-shadow(0 0 5px var(--cyber-neon));
+        }
+
+        .logo-text {
             font-weight: bold;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             color: var(--cyber-neon);
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+
+        .logo-quote {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            opacity: 0.7;
+            margin-top: 4px;
+            font-style: italic;
         }
 
         /* --- Hero Section --- */
@@ -292,7 +323,17 @@
 <body>
 
     <nav>
-        <div class="nav-logo">CYBER1</div>
+        <div class="nav-logo-wrapper">
+            <div class="nav-logo-main">
+                <!-- Assassin's Creed Insignia SVG -->
+                <svg class="ac-insignia" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 0 L15 85 L35 85 L50 45 L65 85 L85 85 Z" />
+                    <path d="M50 120 C30 110 10 90 10 70 L25 70 C25 85 40 95 50 100 C60 95 75 85 75 70 L90 70 C90 90 70 110 50 120 Z" />
+                </svg>
+                <div class="logo-text">CYBER1</div>
+            </div>
+            <div class="logo-quote">Nothing is true, everything is permitted</div>
+        </div>
     </nav>
     
     <header class="hero">
